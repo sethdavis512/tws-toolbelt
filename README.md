@@ -21,6 +21,7 @@ npm install tws-toolbelt
 - 🌍 **Environment utilities** - Safe environment variable access and validation
 - 📝 **String utilities** - Case conversion, formatting, and text manipulation
 - 🌐 **Web utilities** - URL validation, query strings, color conversion, file operations
+- 🗄️ **Database utilities** - Simple JSON file databases with functional API, CRUD operations
 - ⚡ **General utilities** - Debounce, throttle, memoization, and retry mechanisms
 
 ## Usage
@@ -290,6 +291,58 @@ const rgb = hexToRgb('#ff0000'); // { r: 255, g: 0, b: 0 }
 const fileSize = formatFileSize(1024); // "1 KB"
 ```
 
+### Database Utilities
+
+```typescript
+import {
+  createDatabase,
+  createUsersDatabase,
+  generateId,
+  withTimestamps,
+} from 'tws-toolbelt';
+
+// Create a users database
+const users = await createUsersDatabase('my-users.json');
+
+// Add a user
+await users.add({
+  id: 1,
+  name: 'John Doe',
+  email: 'john@example.com',
+  role: 'admin',
+});
+
+// Update a user
+await users.update(1, {
+  role: 'super-admin',
+  lastLogin: new Date().toISOString(),
+});
+
+// Query users
+const user = users.getById(1);
+const admins = users.find((user) => user.role.includes('admin'));
+
+// Create custom database
+const books = await createDatabase('books.json', 'books');
+
+// Add with timestamps and generated ID
+await books.add(
+  withTimestamps({
+    id: generateId(),
+    title: 'JavaScript Guide',
+    author: 'John Doe',
+    category: 'technical',
+  }),
+);
+
+// Complex queries
+const technicalBooks = books.query((books) =>
+  books
+    .filter((book) => book.category === 'technical')
+    .sort((a, b) => a.title.localeCompare(b.title)),
+);
+```
+
 ## Module Organization
 
 The library is organized into focused modules:
@@ -305,6 +358,7 @@ The library is organized into focused modules:
 - `env` - Environment variable utilities
 - `string` - String manipulation and text processing
 - `web` - URL validation, query strings, color conversion, file utilities
+- `database` - JSON file databases with functional API and CRUD operations
 - `utils` - General utilities like debounce, throttle, memoize, retry
 
 You can import from specific modules:

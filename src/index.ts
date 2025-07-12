@@ -37,3 +37,6 @@ export * from './web.js';
 
 // Additional utilities
 export * from './utils.js';
+
+// Database utilities
+export * from './database.js';
