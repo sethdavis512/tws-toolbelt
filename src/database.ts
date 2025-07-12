@@ -26,7 +26,7 @@ export type DatabaseInstance<T = any> = {
  * @param defaultData - Default data structure
  * @returns Promise<DatabaseInstance> Database instance with utility functions
  */
-export async function createDatabase<T extends { id: string | number }>(
+export async function createDatabase<T extends Record<string, any>>(
   filename: string,
   collectionName: string,
   defaultData: Record<string, any> = {},
