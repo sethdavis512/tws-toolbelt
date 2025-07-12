@@ -1,0 +1,53 @@
+{
+  "name": "tws-toolbelt",
+  "version": "1.0.0",
+  "description": "A comprehensive utility library for everyday development - providing math, formatting, string manipulation, crypto, and more utilities",
+  "keywords": [
+    "typescript",
+    "utilities",
+    "helpers",
+    "toolbelt",
+    "math",
+    "formatting",
+    "crypto",
+    "strings",
+    "arrays",
+    "objects",
+    "random",
+    "guards",
+    "environment"
+  ],
+  "homepage": "https://github.com/sethdavis512/tws-toolbelt",
+  "bugs": {
+    "url": "https://github.com/sethdavis512/tws-toolbelt/issues"
+  },
+  "author": "Seth Davis <techwithseth512@gmail.com> (https://sethdavis.tech)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sethdavis512/tws-toolbelt.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "dev": "vitest",
+    "ci": "npm run build && npm run check-format && npm run test",
+    "format": "prettier --write .",
+    "check-format": "prettier --check .",
+    "changeset": "changeset",
+    "release": "changeset version",
+    "prepublishOnly": "npm run ci"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@changesets/cli": "^2.29.5",
+    "prettier": "^3.6.2",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}
