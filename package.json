@@ -1,6 +1,6 @@
 {
   "name": "my-typescript-toolbelt",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A comprehensive utility library for everyday development - providing math, formatting, string manipulation, crypto, and more utilities",
   "keywords": [
     "typescript",
@@ -49,5 +49,8 @@
     "prettier": "^3.6.2",
     "typescript": "^5.8.3",
     "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "lowdb": "^7.0.1"
   }
 }
