@@ -1,5 +1,11 @@
 # tws-toolbelt
 
+## 1.0.3
+
+### Patch Changes
+
+- d7d10af: Fix types
+
 ## 1.0.2
 
 ### Patch Changes
